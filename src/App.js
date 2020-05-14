@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+  /*
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +21,64 @@ function App() {
       </header>
     </div>
   );
+  */
+function App() {
+  return (
+    <SignupForm />
+  )
+
 }
+
+
+class SignupForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateSignUpValue = this.updateSignUpValue.bind(this);
+    this.state = {
+        'name' : {
+          label: 'First Name',
+          value: '',
+          isValid: false
+        }, 
+        'emailAddress' : {
+          label: 'Email Address',
+          value: '',
+          isValid: false
+        },
+        'password' : {
+          label: 'Password',
+          value: '',
+          isValid: false
+        }
+      };
+  }
+  
+
+  updateSignUpValue(
+    valueName, // string 
+    newValue,  // string
+    isValid,   //  bool
+  ) {
+    this.setState(prevState=>({
+      ...prevState,
+      [valueName]: {
+        value: newValue,
+        isValid: isValid
+      }
+    }));
+  }
+
+
+  render() {
+    console.log(this.state);
+    return (
+      <div className="App">
+        hello world
+      </div>
+    );
+  }
+}
+
+
 
 export default App;
