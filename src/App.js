@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {containsText, isValidEmail} from './validations';
 
 
   /*
@@ -24,23 +25,10 @@ import './App.css';
   );
   */
 
-function genericValidation () {return true}
-const containsText = (str) => (
-    typeof str === "string" && 
-    str.length > 0
-  );
-
-const isValidEmail = (str) => (
-    typeof str === "string" && 
-    str.length > 0 &&
-    /^\S+@\S+[\.][0-9a-z]+$/.test(str)
-  );
-
 function App() {
   return (
     <SignupForm />
   )
-
 }
 
 
@@ -80,6 +68,7 @@ class SignupForm extends React.Component {
     console.log(this.state);
 
   }
+
   containsInvalidField = () => {
     let validityOfFields = []; 
     for (const field in this.state){
