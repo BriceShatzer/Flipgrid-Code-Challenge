@@ -38,17 +38,20 @@ class SignupForm extends React.Component {
         'name' : {
           label: 'First Name',
           value: '',
-          isValid: false
+          isValid: false,
+          validator: ()=>{return true}
         }, 
         'emailAddress' : {
           label: 'Email Address',
           value: '',
-          isValid: false
+          isValid: false,
+          validator: ()=>{return true}
         },
         'password' : {
           label: 'Password',
           value: '',
-          isValid: false
+          isValid: false,
+          validator: ()=>{return true}
         }
       };
   }
@@ -66,19 +69,80 @@ class SignupForm extends React.Component {
         isValid: isValid
       }
     }));
+    console.log(this.state);
+
   }
 
 
   render() {
-    console.log(this.state);
+    const state = this.state;
+    let arrOfInputFields = [];
+
+    for (const field in state) {
+      arrOfInputFields.push(
+        <InputField 
+          valueName={field}
+          label={state[field].label}
+          validator={state[field].validator}
+          changeHandler={this.updateSignUpValue}
+          key={field}
+        />
+      )
+    }
+
     return (
       <div className="App">
-        hello world
+        {arrOfInputFields}
+        <button disabled={false}> Sign Up </button>
       </div>
     );
   }
 }
 
+class InputField extends React.Component {
+  constructor(props) {
+    /* 
+    {
+      label: string
+      valueName: string
+      validator: func
+      changeHandler: func
+    }
+    */
+    super(props);
+    this.state = {value: ''};
+    this.formValueChange = this.formValueChange.bind(this)
+    
+
+    
+  }
+  formValueChange (e) {
+    console.log('formValueChange');
+    this.setState({value: e.target.value});
+    this.props.changeHandler(
+      this.props.valueName,
+      e.target.value,
+      this.props.validator(e.target.value)
+    )
+  }
+  render (){
+    console.log(this.props);
+    
+    return (
+    <React.Fragment>
+      <label htmlFor={this.props.valueName}>
+        {this.props.label}
+      </label>
+      <input 
+        type="text"
+        id={this.props.valueName}
+        value={this.state.value}
+        onChange={this.formValueChange}
+      />
+    </React.Fragment>
+    )
+  }
+}
 
 
 export default App;

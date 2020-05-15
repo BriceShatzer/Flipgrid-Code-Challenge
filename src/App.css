@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App {
+  margin: 2rem;
+  padding: 1rem;
+  width: 50vw;
+  border: 2px solid #333;
+  display: flex;
+  flex-direction: column;
 }
+
+label, input {display: block;}
+
+input {margin-bottom: 1rem;}
+
+button {max-width: 60px;}
+
+
