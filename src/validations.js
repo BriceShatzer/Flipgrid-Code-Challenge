@@ -8,5 +8,5 @@ export const containsText = (str) => (
 export const isValidEmail = (str) => (
     typeof str === "string" && 
     str.length > 0 &&
-    /^\S+@\S+[\.][0-9a-z]+$/.test(str.toLowerCase())
+    /^\S+@\S+[.][0-9a-z]+$/.test(str.toLowerCase())
   );
