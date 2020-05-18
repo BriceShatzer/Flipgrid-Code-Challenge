@@ -4,6 +4,20 @@ import './App.css';
 import InputField from './InputField';
 import {containsText, isValidEmail} from './validations';
 
+let baseUserValues = {
+  'name' : {
+    value: '',
+    isValid: false
+  }, 
+  'emailAddress' : {
+    value: '',
+    isValid: false,
+  },
+  'password' : {
+    value: '',
+    isValid: false,
+  }
+}
 
   /*
   return (
@@ -25,31 +39,58 @@ import {containsText, isValidEmail} from './validations';
     </div>
   );
   */
-
-function App() {
-  return (
-    <SignupForm />
-  )
+ class App extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    this.submitUserValue = this.submitUserValue.bind(this);
+    this.state = {
+        userValueIsSubmitted: false,
+        userValues: {
+          ...baseUserValues
+        }
+      };
+  }
+  submitUserValue (
+    obj // userValues
+  ) {
+    this.setState({
+      userValues: {...obj},
+      userValueIsSubmitted: true
+    });
+  }
+  render(){
+    return (
+      <div className="App">
+        {
+        this.state.userValueIsSubmitted ? 
+          <div> heeeey </div> :
+          <SignupForm updateAppState={this.submitUserValue} />
+        }
+      </div>
+    )
+  }
 }
-
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.updateSignUpValue = this.updateSignUpValue.bind(this);
     this.state = {
-        'name' : {
-          value: '',
-          isValid: false
-        }, 
-        'emailAddress' : {
-          value: '',
-          isValid: false,
-        },
-        'password' : {
-          value: '',
-          isValid: false,
-        }
+      ...baseUserValues
+        // 'name' : {
+        //   value: '',
+        //   isValid: false
+        // }, 
+        // 'emailAddress' : {
+        //   value: '',
+        //   isValid: false,
+        // },
+        // 'password' : {
+        //   value: '',
+        //   isValid: false,
+        // }
       };
   }
   
@@ -84,12 +125,13 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    /// do untouched 
     console.log(
       this.containsInvalidField
     );
 
     return (
-      <div className="App">
+      <React.Fragment>
         <InputField 
           valueName="name" 
           label="First Name"
@@ -110,8 +152,10 @@ class SignupForm extends React.Component {
           type="password"
         />
         
-        <button disabled={this.containsInvalidField()}> Sign Up </button>
-      </div>
+        <button disabled={this.containsInvalidField()} onClick={
+          this.containsInvalidField() ? undefined : ()=>this.props.updateAppState(this.state, true)
+        }> Sign Up </button>
+      </React.Fragment>
     );
   }
 }
