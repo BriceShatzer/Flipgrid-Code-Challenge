@@ -12,17 +12,15 @@ class InputField extends React.Component {
       }
       */
       super(props);
-      this.state = {value: '', isValid: false};
-      this.formValueChange = this.formValueChange.bind(this)
-      
-  
-      
+      this.state = {value: '', isValid: false, untouched: true};
+      this.formValueChange = this.formValueChange.bind(this);
     }
+
     formValueChange (e) {
-      console.log('formValueChange');
       const isValid = this.props.validator(e.target.value);
       this.setState({
         value: e.target.value,
+        touched: true,
         isValid 
       });
   
@@ -32,7 +30,6 @@ class InputField extends React.Component {
         isValid
       )
     }
-  
   
     render (){
       return (
@@ -45,7 +42,11 @@ class InputField extends React.Component {
             id={this.props.valueName}
             value={this.state.value}
             onChange={this.formValueChange}
-            className={this.state.isValid ? "valid" : "inValid"}
+            className={
+                this.state.touched ? 
+                    this.state.isValid ? "valid" : "inValid"
+                : "untouched"
+            }
           />
         </React.Fragment>
       )

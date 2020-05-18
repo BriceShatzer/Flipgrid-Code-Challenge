@@ -125,10 +125,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    /// do untouched 
-    console.log(
-      this.containsInvalidField
-    );
 
     return (
       <React.Fragment>
