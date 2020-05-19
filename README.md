@@ -1,5 +1,5 @@
 
-## FlipGrid/Microsoft Code Challenge 
+## Flipgrid/Microsoft Code Challenge 
 
 - Original [assignment document](https://github.com/BriceShatzer/Flipgrid-Code-Challenge/blob/master/Flipgrid%20Code%20Challenge.pdf)
 - Currently live at [BriceShatzer.com/Flipgrid-Code-Challenge/](https://briceshatzer.com/Flipgrid-Code-Challenge/)
