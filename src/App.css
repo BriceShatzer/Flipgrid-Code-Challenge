@@ -1,24 +1,24 @@
 
 @font-face {
   font-family: geomanist-regular;
+  font-style:normal;
+  font-weight:400;
   src:  url(https://static.flipgrid.com/fonts/geomanist-regular-webfont.woff2) format("woff2"),
         url(https://static.flipgrid.com/fonts/geomanist-regular-webfont.woff) format("woff");
-  font-weight:400;
-  font-style:normal;
 }
 @font-face{
   font-family: geomanist-medium;
+  font-style:normal;
+  font-weight:400;
   src:  url(https://static.flipgrid.com/fonts/geomanist-medium-webfont.woff2) format("woff2"),
         url(https://static.flipgrid.com/fonts/geomanist-medium-webfont.woff) format("woff");
-  font-weight:400;
-  font-style:normal;
 }
 @font-face{
   font-family: geomanist-bold;
+  font-style:normal;
+  font-weight:700;
   src:  url(https://static.flipgrid.com/fonts/geomanist-bold-webfont.woff2) format("woff2"),
         url(https://static.flipgrid.com/fonts/geomanist-bold-webfont.woff) format("woff");
-  font-weight:700;
-  font-style:normal;
 }
 
 :root {  
@@ -26,24 +26,25 @@
 }
 
 .App {
-  box-sizing: border-box;
-  font-family: geomanist, Helvetica, sans-serif;
   background-color: #FFF;
   border: 1px solid var(--gray);
   border-radius: 12px;
-  box-shadow: 0 0 10px var(--gray);
+  box-shadow: 0 0 10px var(--gray);  
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 2rem auto 0;
+  font-family: geomanist, Helvetica, sans-serif;
+  margin: 2rem auto 0;  
+  max-width: 640px;
   padding: 2rem;
   width: 50vw;
-  max-width: 640px;
 }
 
 h1 {
   font-weight: 400;
   margin: 0;
 }
+
 h1 strong { font-weight: 700; }
 
 label {
@@ -63,44 +64,44 @@ button:active {
 input {
   border: 1px solid var(--gray);
   border-radius: 6px;
+  font-size: 1em;
   line-height: 0;
   margin-bottom: 1rem;
   outline:none;
   padding: .5rem 1rem;
-  font-size: 1em;
 }
 input.inValid {
   background-color: rgba(255,1,13,.1);
 }
 
 button {
+  align-self: flex-end;
   background: linear-gradient(138deg,#ff5502,#ff017f,#ff010d);
-  transition: background-position .15s cubic-bezier(.45,.05,.55,.95);
   background-size:300% 100%;
   border-color: white;
-  color: white;
-  padding: 1rem 1.5rem;
   border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 700;  
+  padding: 1rem 1.5rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  align-self: flex-end;
-  font-size: 1em;
-  font-weight: 700;
-  cursor: pointer;
+  transition: background-position .15s cubic-bezier(.45,.05,.55,.95);
 }
+
 button:disabled {
-  filter: grayscale(75%) opacity(75%);
   cursor: default;
+  filter: grayscale(75%) opacity(75%);
 }
 
 .resetLogo {
-  position: absolute;
   bottom: 0.5rem;
+  cursor: pointer;
+  position: absolute;
   right: 0.5rem;
   width: 6rem;
-  cursor: pointer;
-
 }
 .resetLogo:hover{
   animation: wiggle 1s ease-in-out;
@@ -121,8 +122,8 @@ button:disabled {
 }
 @media screen and (max-width: 720px){
   .App {
-    width: auto;
     margin-left: 2rem;
     margin-right: 2rem;
+    width: auto;
   }
 }
