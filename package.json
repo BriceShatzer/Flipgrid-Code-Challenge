@@ -2,6 +2,7 @@
   "name": "flipgrid-code-challenge",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://briceshatzer.github.io/Flipgrid-Code-Challenge/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
