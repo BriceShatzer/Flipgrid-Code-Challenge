@@ -1,7 +1,12 @@
 body {
-  font-size: 18px;
   background-color: #F7F7F7;
+  font-size: 18px;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+#root {
+  min-height: 100vh;
+  padding-bottom: 4.5rem;
+  position: relative;
 }

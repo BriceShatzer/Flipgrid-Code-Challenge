@@ -21,12 +21,12 @@
   font-style:normal;
 }
 
-:root {
-  min-height: 100vh;
+:root {  
   --gray: rgba(0,0,0,.1);
 }
 
 .App {
+  box-sizing: border-box;
   font-family: geomanist, Helvetica, sans-serif;
   background-color: #FFF;
   border: 1px solid var(--gray);
@@ -34,9 +34,10 @@
   box-shadow: 0 0 10px var(--gray);
   display: flex;
   flex-direction: column;
-  margin: 2rem;
+  margin: 2rem auto 0;
   padding: 2rem;
   width: 50vw;
+  max-width: 640px;
 }
 
 h1 {
@@ -113,3 +114,15 @@ button:disabled {
   100% {transform: rotate(0deg);}
 }
 
+@media screen and (max-width: 1024px){
+  .App {
+    width: 75vw;
+  }
+}
+@media screen and (max-width: 720px){
+  .App {
+    width: auto;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
