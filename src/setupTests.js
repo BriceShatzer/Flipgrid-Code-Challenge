@@ -3,3 +3,9 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
+import {queryByAttribute } from '@testing-library/react';
+
+
+export const getElementById = (id, container) => {
+    return queryByAttribute('id', container, id);
+  }

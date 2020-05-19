@@ -1,13 +1,14 @@
 import React from 'react';
 import { render, queryByAttribute, } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+// import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, getByText, getNodeText } from '@testing-library/dom';
+import {getElementById} from './setupTests';
 import App from './App';
 
 let app; 
-let getElementById = (id, container) => {
-  return queryByAttribute('id', container, id);
-}
+// let getElementById = (id, container) => {
+//   return queryByAttribute('id', container, id);
+// }
 
 const testName = 'Parker';
 const testEmailAddress = 'abc@def123.com';

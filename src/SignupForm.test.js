@@ -1,13 +1,14 @@
 import React from 'react';
-import { render, queryByAttribute, } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, getByText } from '@testing-library/dom';
+import { render } from '@testing-library/react';
+// import '@testing-library/jest-dom/extend-expect';
+import { fireEvent } from '@testing-library/dom';
+import {getElementById} from './setupTests';
 import SignupForm from './SignupForm';
 
 let component; 
-let getElementById = (id, container) => {
-  return queryByAttribute('id', container, id);
-}
+// let getElementById = (id, container) => {
+//   return queryByAttribute('id', container, id);
+// }
 
 describe('Input Fields', () => {
   function checkInitialState (inputEl) {
