@@ -67,7 +67,7 @@ function Confirmation (props) {return (
       Please check your email listed below for instructions. 
     </p>
     <p>{props.email}</p>
-    <button> Sign In</button>
+    <button>Sign In</button>
   </React.Fragment>
 )}
 

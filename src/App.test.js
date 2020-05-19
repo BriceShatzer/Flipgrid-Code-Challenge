@@ -1,27 +1,26 @@
 import React from 'react';
-import { render, queryByAttribute } from '@testing-library/react';
+import { render, queryByAttribute, } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent } from '@testing-library/dom';
+import { fireEvent, getByText } from '@testing-library/dom';
 import App from './App';
 
 let app; 
-let getElementById; 
-function checkInitialState (inputEl) {
-  expect(inputEl.tagName).toEqual('INPUT');
-  expect(inputEl.className).toEqual('untouched');
+let getElementById = (id, container) => {
+  return queryByAttribute('id', container, id);
 }
 
 describe('Input Fields', () => {
+  function checkInitialState (inputEl) {
+    expect(inputEl.tagName).toEqual('INPUT');
+    expect(inputEl.className).toEqual('untouched');
+  }
+  
   beforeEach(() => {
     app = render(<App />);
-    
-    getElementById = (id) => {
-      return queryByAttribute('id',app.container, id);
-    }    
   });
 
   test('name input field ', () => {
-    const nameInput = getElementById('name');
+    const nameInput = getElementById('name', app.container);
 
     // 'name' -- initial state 
     expect(nameInput.type).toEqual('text');
@@ -38,7 +37,7 @@ describe('Input Fields', () => {
   }),
 
   test('emailAddress input field ', () => {
-    const emailAddressInput = getElementById('emailAddress');
+    const emailAddressInput = getElementById('emailAddress', app.container);
 
     // 'emailAddress' -- initial state 
     expect(emailAddressInput.type).toEqual('text');
@@ -58,7 +57,7 @@ describe('Input Fields', () => {
   }),
 
   test('password input field', () => {
-    const passwordInput = getElementById('password');
+    const passwordInput = getElementById('password', app.container);
     
     // 'password' ---  initial state
     expect(passwordInput.type).toEqual('password');
@@ -74,6 +73,34 @@ describe('Input Fields', () => {
   })
 });
 
+describe('Sign Up Button', () => {
+  test('is disabled when fields are invalid',()=>{
+    app = render(<App />);
+    const submitButton = getByText(app.container, 'Sign Up');
+    expect(submitButton.disabled).toBeTruthy();
+  }),
+  test('is enabled when fields are valid',()=>{
+    app = render(<App />);
+    const nameInput = getElementById('name', app.container);
+    const emailInput = getElementById('emailAddress', app.container);
+    const passwordInput = getElementById('password', app.container);
+    const submitButton = getByText(app.container, 'Sign Up');
+
+    fireEvent.change(
+      nameInput,
+      { target: { value: 'Parker' } }
+    );
+    fireEvent.change(
+      emailInput, 
+      { target: { value: 'abc@def123.com' } }
+    );
+    fireEvent.change(
+      passwordInput,
+      { target: { value: 'aBcEf1234%$&*' } }
+    );
+    expect(submitButton.disabled).toBeFalsy();
+  })
+});
 
 test('tests are a thing', () => {
   expect( typeof 'string' === 'string').toEqual(true);
