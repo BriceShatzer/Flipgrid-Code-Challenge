@@ -1,5 +1,6 @@
 
 :root {
+  min-height: 100vh;
   --gray: rgba(0,0,0,.1);
 }
 
@@ -113,4 +114,23 @@ button:disabled {
   /* filter: saturate(0%) */
 }
 
+.resetLogo {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 6rem;
+  cursor: pointer;
+
+}
+.resetLogo:hover{
+  animation: wiggle 1s ease-in-out;
+}
+
+@keyframes wiggle {
+  0% {transform: rotate(2deg);}
+  25% {transform: rotate(-4deg);}
+  50% {transform: rotate(4deg);}
+  75% {transform: rotate(-2deg);}
+  100% {transform: rotate(0deg);}
+}
 
