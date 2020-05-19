@@ -60,6 +60,13 @@ class SignupForm extends React.Component {
   
       return (
         <React.Fragment>
+        <h1>
+            Let's <br/>
+            <strong>Sign Up</strong>
+        </h1>
+        <p>
+            Use the form below to sign up for this super awesome service. You're only a few steps away!
+        </p>
           <InputField 
             valueName="name" 
             label="First Name"
