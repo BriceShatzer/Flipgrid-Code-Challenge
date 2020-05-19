@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.0c2269e5.chunk.css",
-    "main.js": "/static/js/main.9426b6fc.chunk.js",
-    "main.js.map": "/static/js/main.9426b6fc.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4d38cfa0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4d38cfa0.js.map",
-    "static/js/2.ea0359de.chunk.js": "/static/js/2.ea0359de.chunk.js",
-    "static/js/2.ea0359de.chunk.js.map": "/static/js/2.ea0359de.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.64445a2cc50cb76e4485f387cd928ec4.js": "/precache-manifest.64445a2cc50cb76e4485f387cd928ec4.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.0c2269e5.chunk.css.map": "/static/css/main.0c2269e5.chunk.css.map",
-    "static/js/2.ea0359de.chunk.js.LICENSE.txt": "/static/js/2.ea0359de.chunk.js.LICENSE.txt",
-    "static/media/reset.svg": "/static/media/reset.0f2d8b34.svg"
+    "main.css": "/Flipgrid-Code-Challenge/static/css/main.0c2269e5.chunk.css",
+    "main.js": "/Flipgrid-Code-Challenge/static/js/main.3190df45.chunk.js",
+    "main.js.map": "/Flipgrid-Code-Challenge/static/js/main.3190df45.chunk.js.map",
+    "runtime-main.js": "/Flipgrid-Code-Challenge/static/js/runtime-main.9a21e8fb.js",
+    "runtime-main.js.map": "/Flipgrid-Code-Challenge/static/js/runtime-main.9a21e8fb.js.map",
+    "static/js/2.ea0359de.chunk.js": "/Flipgrid-Code-Challenge/static/js/2.ea0359de.chunk.js",
+    "static/js/2.ea0359de.chunk.js.map": "/Flipgrid-Code-Challenge/static/js/2.ea0359de.chunk.js.map",
+    "index.html": "/Flipgrid-Code-Challenge/index.html",
+    "precache-manifest.fa7d89618182111246e41116276a2649.js": "/Flipgrid-Code-Challenge/precache-manifest.fa7d89618182111246e41116276a2649.js",
+    "service-worker.js": "/Flipgrid-Code-Challenge/service-worker.js",
+    "static/css/main.0c2269e5.chunk.css.map": "/Flipgrid-Code-Challenge/static/css/main.0c2269e5.chunk.css.map",
+    "static/js/2.ea0359de.chunk.js.LICENSE.txt": "/Flipgrid-Code-Challenge/static/js/2.ea0359de.chunk.js.LICENSE.txt",
+    "static/media/reset.svg": "/Flipgrid-Code-Challenge/static/media/reset.0f2d8b34.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4d38cfa0.js",
+    "static/js/runtime-main.9a21e8fb.js",
     "static/js/2.ea0359de.chunk.js",
     "static/css/main.0c2269e5.chunk.css",
-    "static/js/main.9426b6fc.chunk.js"
+    "static/js/main.3190df45.chunk.js"
   ]
 }
