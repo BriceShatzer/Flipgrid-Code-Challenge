@@ -40,8 +40,7 @@ class App extends React.Component {
     
     return (
       <div className="App">
-        {
-        this.state.userValueIsSubmitted ? 
+        {this.state.userValueIsSubmitted ? 
           <Confirmation 
             firstName={this.state.userValues.name.value} 
             email={this.state.userValues.emailAddress.value} 
