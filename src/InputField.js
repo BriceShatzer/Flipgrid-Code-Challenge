@@ -1,16 +1,10 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
+import baseUserValues from './baseUserValues.js';
 
 class InputField extends React.Component {
     constructor(props) {
-      /* 
-      {
-        label: string
-        valueName: string
-        validator: func
-        changeHandler: func
-      }
-      */
       super(props);
       this.state = {value: '', isValid: false, untouched: true};
       this.formValueChange = this.formValueChange.bind(this);
@@ -52,5 +46,12 @@ class InputField extends React.Component {
       )
     }
 }
-  
+
+InputField.propTypes = {
+    label: PropTypes.string.isRequired,
+    valueName: PropTypes.oneOf([...Object.keys(baseUserValues)]).isRequired,
+    validator: PropTypes.func.isRequired,
+    changeHandler: PropTypes.func.isRequired
+}
+
 export default InputField

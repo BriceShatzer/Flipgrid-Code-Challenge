@@ -1,8 +1,9 @@
 
 import React from 'react';
 import InputField from './InputField';
-import {baseUserValues} from './App';
+import baseUserValues from './baseUserValues';
 import {containsText, isValidEmail} from './validations';
+import PropTypes from 'prop-types';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -10,8 +11,7 @@ class SignupForm extends React.Component {
       this.updateSignUpValue = this.updateSignUpValue.bind(this);
       this.state = {...baseUserValues};
     }
-    
-  
+     
     updateSignUpValue(
       valueName, // string 
       newValue,  // string
@@ -70,6 +70,10 @@ class SignupForm extends React.Component {
         </React.Fragment>
       );
     }
+}
+
+SignupForm.propTypes = {
+    updateAppState: PropTypes.func.isRequired
 }
 
 export default SignupForm

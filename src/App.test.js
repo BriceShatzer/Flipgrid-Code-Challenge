@@ -1,25 +1,31 @@
 import React from 'react';
-import { render, queryByAttribute, } from '@testing-library/react';
-// import '@testing-library/jest-dom/extend-expect';
+import { render } from '@testing-library/react';
 import { fireEvent, getByText, getNodeText } from '@testing-library/dom';
 import {getElementById} from './setupTests';
 import App from './App';
 
-let app; 
-// let getElementById = (id, container) => {
-//   return queryByAttribute('id', container, id);
-// }
-
+let component;
 const testName = 'Parker';
 const testEmailAddress = 'abc@def123.com';
 const testPassword = 'aBcEf1234%$&*';
 
 describe('App views', () => {
-  test('Confirmation view displayed after ',()=>{
-    app = render(<App />);
-    const nameInput = getElementById('name', app.container);
-    const emailInput = getElementById('emailAddress', app.container);
-    const passwordInput = getElementById('password', app.container);
+  test('default view',()=>{
+    component = render(<App />);
+
+    const buttons = component.container.querySelectorAll('button');
+    expect( buttons.length).toEqual( 1 );
+
+    const inputFields = component.container.querySelectorAll('input');
+    expect( inputFields.length).toEqual( 3 );
+
+  });
+  
+  test('Confirmation view displayed after submission',()=>{
+    component = render(<App />);
+    const nameInput = getElementById('name', component.container);
+    const emailInput = getElementById('emailAddress', component.container);
+    const passwordInput = getElementById('password', component.container);
     
     fireEvent.change(
       nameInput,
@@ -34,25 +40,25 @@ describe('App views', () => {
       { target: { value: testPassword} }
     );
     fireEvent.click(
-      app.container.querySelector('button')
+      component.container.querySelector('button')
     )
     
     expect(
-      getNodeText(app.container.querySelector('h1 strong'))
+      getNodeText(component.container.querySelector('h1 strong'))
     ).toEqual(`${testName}!`);
 
-    expect(getByText(app.container, testEmailAddress))
+    expect(getByText(component.container, testEmailAddress))
       .toMatchInlineSnapshot(`
         <p>
           ${testEmailAddress}
         </p>
       `);
 
-    expect(getByText(app.container, 'Sign In'))
+    expect(getByText(component.container, 'Sign In'))
       .toMatchInlineSnapshot(`
         <button>
           Sign In
         </button>
       `);
-  })
+  });
 });

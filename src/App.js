@@ -2,21 +2,9 @@ import React from 'react';
 import './App.css';
 import SignupForm from './SignupForm';
 import reset from './reset.svg';
+import baseUserValues from './baseUserValues';
+import PropTypes from 'prop-types';
 
-export let baseUserValues = {
-  'name' : {
-    value: '',
-    isValid: false
-  }, 
-  'emailAddress' : {
-    value: '',
-    isValid: false,
-  },
-  'password' : {
-    value: '',
-    isValid: false,
-  }
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -38,7 +26,6 @@ class App extends React.Component {
     });
   }
   render(){
-    
     return (
       <React.Fragment>
         <div className="App">
@@ -67,7 +54,6 @@ class App extends React.Component {
   }
 }
 
-
 function Confirmation (props) {return (
   <React.Fragment>
     <h1>
@@ -83,6 +69,9 @@ function Confirmation (props) {return (
   </React.Fragment>
 )}
 
-
+Confirmation.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+}
 
 export default App;

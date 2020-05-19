@@ -1,14 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-// import '@testing-library/jest-dom/extend-expect';
-import { fireEvent } from '@testing-library/dom';
+import { fireEvent, getNodeText } from '@testing-library/dom';
 import {getElementById} from './setupTests';
 import SignupForm from './SignupForm';
 
 let component; 
-// let getElementById = (id, container) => {
-//   return queryByAttribute('id', container, id);
-// }
+const submitUserValueMock = jest.fn;
 
 describe('Input Fields', () => {
   function checkInitialState (inputEl) {
@@ -17,7 +14,7 @@ describe('Input Fields', () => {
   }
   
   beforeEach(() => {
-    component = render(<SignupForm />);
+    component = render(<SignupForm updateAppState={submitUserValueMock} />);
   });
 
   test('name input field ', () => {
@@ -75,17 +72,25 @@ describe('Input Fields', () => {
 });
 
 describe('Sign Up Button', () => {
+  beforeEach(() => {
+    component = render(<SignupForm updateAppState={submitUserValueMock} />);
+  });
+
+  test('renders default state',()=>{
+    const submitButton = component.container.querySelector('button');
+    expect( getNodeText(submitButton).trim() ).toEqual("Sign Up");
+  });
+
   test('is disabled when fields are invalid',()=>{
-    component = render(<SignupForm />);
     const submitButton = component.container.querySelector('button');
     expect(submitButton.disabled).toBeTruthy();
-  })
+  }); 
+
   test('is enabled when fields are valid',()=>{
-    component = render(<SignupForm />);
+    const submitButton = component.container.querySelector('button');
     const nameInput = getElementById('name', component.container);
     const emailInput = getElementById('emailAddress', component.container);
     const passwordInput = getElementById('password', component.container);
-    const submitButton = component.container.querySelector('button');
 
     fireEvent.change(
       nameInput,

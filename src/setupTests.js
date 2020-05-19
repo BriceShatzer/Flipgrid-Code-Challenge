@@ -5,7 +5,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import {queryByAttribute } from '@testing-library/react';
 
-
 export const getElementById = (id, container) => {
     return queryByAttribute('id', container, id);
   }
