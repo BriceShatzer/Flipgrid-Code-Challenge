@@ -2,7 +2,8 @@
 
 export const containsText = (str) => (
     typeof str === "string" && 
-    str.length > 0
+    str.length > 0 && 
+    str.indexOf(' ') === -1
   );
 
 export const isValidEmail = (str) => (
