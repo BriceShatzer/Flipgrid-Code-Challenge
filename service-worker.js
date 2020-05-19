@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Flipgrid-Code-Challenge/precache-manifest.fa7d89618182111246e41116276a2649.js"
+  "/Flipgrid-Code-Challenge/precache-manifest.3e1bbd843fe654b8fb6822b775463a85.js"
 );
 
 self.addEventListener('message', (event) => {
