@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, queryByAttribute, } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, getByText } from '@testing-library/dom';
+import { fireEvent, getByText, getNodeText } from '@testing-library/dom';
 import App from './App';
 
 let app; 
@@ -33,15 +33,12 @@ describe('App views', () => {
       { target: { value: testPassword} }
     );
     fireEvent.click(
-      getByText(app.container, 'Sign Up')
+      app.container.querySelector('button')
     )
     
-    expect(getByText(app.container, testName))
-      .toMatchInlineSnapshot(`
-        <strong>
-          ${testName}
-        </strong>
-      `);
+    expect(
+      getNodeText(app.container.querySelector('h1 strong'))
+    ).toEqual(`${testName}!`);
 
     expect(getByText(app.container, testEmailAddress))
       .toMatchInlineSnapshot(`

@@ -76,16 +76,15 @@ describe('Input Fields', () => {
 describe('Sign Up Button', () => {
   test('is disabled when fields are invalid',()=>{
     component = render(<SignupForm />);
-    const submitButton = getByText(component.container, 'Sign Up');
+    const submitButton = component.container.querySelector('button');
     expect(submitButton.disabled).toBeTruthy();
-  }),
-
+  })
   test('is enabled when fields are valid',()=>{
     component = render(<SignupForm />);
     const nameInput = getElementById('name', component.container);
     const emailInput = getElementById('emailAddress', component.container);
     const passwordInput = getElementById('password', component.container);
-    const submitButton = getByText(component.container, 'Sign Up');
+    const submitButton = component.container.querySelector('button');
 
     fireEvent.change(
       nameInput,
