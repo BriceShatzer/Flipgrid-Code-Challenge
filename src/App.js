@@ -17,10 +17,9 @@ export let baseUserValues = {
   }
 }
 
- class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.submitUserValue = this.submitUserValue.bind(this);
     this.state = {
         userValueIsSubmitted: false,

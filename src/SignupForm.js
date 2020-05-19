@@ -7,7 +7,7 @@ import {containsText, isValidEmail} from './validations';
 class SignupForm extends React.Component {
     constructor(props) {
       super(props);
-      console.log(props);
+      // console.log(props);
       this.updateSignUpValue = this.updateSignUpValue.bind(this);
       this.state = {
         ...baseUserValues
@@ -39,7 +39,7 @@ class SignupForm extends React.Component {
           isValid: isValid
         }
       }));
-      console.log(this.state);
+      // console.log(this.state);
   
     }
   
@@ -52,8 +52,8 @@ class SignupForm extends React.Component {
     }
     
     componentDidUpdate () {
-      console.log('state');
-      console.log(this.state);
+    //   console.log('state');
+    //   console.log(this.state);
     }
   
     render() {
