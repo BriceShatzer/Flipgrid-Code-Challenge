@@ -1,9 +1,4 @@
 
-:root {
-  min-height: 100vh;
-  --gray: rgba(0,0,0,.1);
-}
-
 @font-face {
   font-family: geomanist-regular;
   src:  url(https://static.flipgrid.com/fonts/geomanist-regular-webfont.woff2) format("woff2"),
@@ -25,28 +20,23 @@
   font-weight:700;
   font-style:normal;
 }
+
+:root {
+  min-height: 100vh;
+  --gray: rgba(0,0,0,.1);
+}
+
 .App {
   font-family: geomanist, Helvetica, sans-serif;
   background-color: #FFF;
-  /* border: 2px solid #ddd; */
   border: 1px solid var(--gray);
   border-radius: 12px;
   box-shadow: 0 0 10px var(--gray);
-  /* box-shadow: 0 0 10px rgba(0,0,0,.2); */
-  /* box-shadow: 0 0 12px rgba(0,0,0,.25); */
-  /* box-shadow: 0 0 5px 5px rgba(0,0,0,.1); */
   display: flex;
   flex-direction: column;
   margin: 2rem;
-  /* padding: 1.5rem 1rem; */
   padding: 2rem;
   width: 50vw;
-  /* 
-  width: 90%;
-  max-width: 30rem; 
-  margin: 1em 0 5em;
-  position: relative;  
-  */
 }
 
 h1 {
@@ -80,10 +70,6 @@ input {
 }
 input.inValid {
   background-color: rgba(255,1,13,.1);
-  /* background-color: #ff010d; */
-  /* 255 85 2 */
-  /*255 1 127 */
-  /* ff010d */
 }
 
 button {
@@ -92,26 +78,19 @@ button {
   background-size:300% 100%;
   border-color: white;
   color: white;
-  /* padding: 16px 32px; */
   padding: 1rem 1.5rem;
   border-radius: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   align-self: flex-end;
-  
-  /* font-size: 16px; */
   font-size: 1em;
   font-weight: 700;
-  /* margin: 1em; */
   cursor: pointer;
 }
 button:disabled {
   filter: grayscale(75%) opacity(75%);
   cursor: default;
-  /* background: linear-gradient(138, hsl(19.7,50%,50.4%),hsl(331,50%,50.2%),hsl(357.2,50%,50.2%)); */
-  /* background: linear-gradient(138, hsl(20,100%,50%),hsl(331,100%,50%),hsl(357.2,100%,50%)); */
-  /* filter: saturate(0%) */
 }
 
 .resetLogo {

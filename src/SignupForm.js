@@ -7,23 +7,8 @@ import {containsText, isValidEmail} from './validations';
 class SignupForm extends React.Component {
     constructor(props) {
       super(props);
-      // console.log(props);
       this.updateSignUpValue = this.updateSignUpValue.bind(this);
-      this.state = {
-        ...baseUserValues
-          // 'name' : {
-          //   value: '',
-          //   isValid: false
-          // }, 
-          // 'emailAddress' : {
-          //   value: '',
-          //   isValid: false,
-          // },
-          // 'password' : {
-          //   value: '',
-          //   isValid: false,
-          // }
-        };
+      this.state = {...baseUserValues};
     }
     
   
@@ -38,9 +23,7 @@ class SignupForm extends React.Component {
           value: newValue,
           isValid: isValid
         }
-      }));
-      // console.log(this.state);
-  
+      }));  
     }
   
     containsInvalidField = () => {
@@ -50,14 +33,8 @@ class SignupForm extends React.Component {
       }
       return validityOfFields.includes(false)
     }
-    
-    componentDidUpdate () {
-    //   console.log('state');
-    //   console.log(this.state);
-    }
   
     render() {
-  
       return (
         <React.Fragment>
         <h1>
