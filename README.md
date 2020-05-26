@@ -12,4 +12,4 @@
 --- 
 
 
-The original README for the crate-react-app project is [available here](https://github.com/BriceShatzer/Flipgrid-Code-Challenge/blob/master/README_create-react-app.md) 
+The original README for the create-react-app project is [available here](https://github.com/BriceShatzer/Flipgrid-Code-Challenge/blob/master/README_create-react-app.md) 
